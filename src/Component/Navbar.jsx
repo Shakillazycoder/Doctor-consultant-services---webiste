@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../src/assets/logo2.jpeg'
 
 
@@ -7,19 +7,19 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <a>Services</a>
+        <NavLink to='/services'>Services</NavLink>
       </li>
       <li>
         <details>
           <summary>Login</summary>
-          <ul className="bg-[#2c3e50] text-[#ffff]">
-            <li>
+          <ul className="bg-[#2c3e50] mt-5 w-52 p-3 space-y-4 rounded-2xl text-[#ffff]">
+            <li className='bg-white text-black rounded-xl p-2'>
               <a>Submenu 1</a>
             </li>
-            <li>
+            <li className='bg-white text-black rounded-xl p-2'>
               <a>Submenu 2</a>
             </li>
           </ul>
@@ -52,19 +52,19 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[5] p-2 shadow bg-[#2c3e50] text-[#ffff] space-y-6 rounded-box w-60"
             >
               {navLinks}
             </ul>
           </div>
-          <Link>
+          <Link to='/'>
           <div className='flex items-center'>
-            <img src={logo} className='w-20 h-20 rounded-2xl' alt="" />
+            <img src={logo} className='w-10 h-10 md:w-16 md:h-16 rounded-2xl' alt="" />
           <p className="btn btn-ghost text-xl">MedConsultPro</p>
           </div></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal gap-5  px-1">
             {navLinks}
           </ul>
         </div>
