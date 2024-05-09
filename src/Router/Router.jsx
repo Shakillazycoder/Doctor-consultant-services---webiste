@@ -6,6 +6,10 @@ import Home from "../Pages/Home";
 import Services from "../Pages/Services";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import AddService from "../Pages/AddService";
+import BookServices from "../Pages/BookServices";
+import ManageService from "../Pages/ManageService";
+import ServicesToDo from "../Pages/ServicesToDo";
   
   const router = createBrowserRouter([
     {
@@ -28,6 +32,22 @@ import Login from "../Pages/Login";
         {
             path: "/login",
             element: <Login></Login>,
+        },
+        {
+            path: "/addServices",
+            element: <AddService></AddService>,
+        },
+        {
+            path: "/bookServices",
+            element: <BookServices></BookServices>,
+        },
+        {
+            path: "/manageServices",
+            element: <ManageService></ManageService>,
+        },
+        {
+            path: "/servicesToDo",
+            element: <ServicesToDo></ServicesToDo>,
         }
       ]
     },

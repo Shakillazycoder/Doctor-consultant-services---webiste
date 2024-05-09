@@ -1,0 +1,108 @@
+[
+    {
+      "imageURL": "https://i.ibb.co/KryHJ6p/low-quality-N40h2-Apziv.jpg",
+      "serviceName": "General Consultation",
+      "price": "$50",
+      "serviceArea": "General Medicine",
+      "description": "Get a comprehensive consultation with our experienced doctors for any general health concerns."
+    },
+    {
+      "imageURL": "https://i.ibb.co/p1pc58L/low-quality-O7-ZRkla-X2x.jpg",
+      "serviceName": "Specialist Consultation",
+      "price": "$80",
+      "serviceArea": "Specialty Medicine",
+      "description": "Consult with our specialist doctors for specific health issues such as cardiology, neurology, etc."
+    },
+    {
+      "imageURL": "https://i.ibb.co/6NJFKpZ/low-quality-9v-INPSx8-CW.jpg",
+      "serviceName": "Telemedicine Consultation",
+      "price": "$40",
+      "serviceArea": "Telemedicine",
+      "description": "Consult with our doctors remotely from the comfort of your home through secure online platforms."
+    },
+    {
+      "imageURL": "https://i.ibb.co/JdWMvzX/low-quality-m3f-EQsc-KU1.jpg",
+      "serviceName": "Pediatric Consultation",
+      "price": "$60",
+      "serviceArea": "Pediatrics",
+      "description": "Specialized consultation for infants, children, and adolescents provided by our pediatricians."
+    },
+    {
+      "imageURL": "https://i.ibb.co/JKd6fCj/low-quality-OFk4mp-Dw-EQ.jpg",
+      "serviceName": "Dermatology Consultation",
+      "price": "$70",
+      "serviceArea": "Dermatology",
+      "description": "Consultation for skin-related issues, including acne, eczema, and psoriasis, provided by our dermatologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/pWsnYfX/low-quality-SVkdat5-Z8-F.jpg",
+      "serviceName": "Nutrition Consultation",
+      "price": "$55",
+      "serviceArea": "Nutrition",
+      "description": "Get personalized nutrition advice and diet plans from our experienced dietitians."
+    },
+    {
+      "imageURL": "https://i.ibb.co/rtVzPXC/speaking-to-the-doctor.jpg",
+      "serviceName": "Psychological Consultation",
+      "price": "$90",
+      "serviceArea": "Psychology",
+      "description": "Consultation for mental health issues such as anxiety, depression, and stress provided by our psychologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/m5LHXvd/doctor-physiotherapist-doing-healing-treatment-on-mans-back.jpg",
+      "serviceName": "Orthopedic Consultation",
+      "price": "$75",
+      "serviceArea": "Orthopedics",
+      "description": "Consultation for musculoskeletal problems including bone fractures, sports injuries, and arthritis."
+    },
+    {
+      "imageURL": "https://i.ibb.co/GMct69T/gynecologist-with-digital-tablet-comforting-pregnant-patient.jpg",
+      "serviceName": "Gynecology Consultation",
+      "price": "$65",
+      "serviceArea": "Gynecology",
+      "description": "Consultation for women's health issues, including reproductive health, provided by our gynecologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/gZr8mkz/female-ophthalmologist-examining-male-patient-in-ophthalmology-clinic-with-autorefractometer.jpg",
+      "serviceName": "Ophthalmology Consultation",
+      "price": "$85",
+      "serviceArea": "Ophthalmology",
+      "description": "Consultation for eye-related issues such as vision problems, cataracts, and glaucoma provided by our ophthalmologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/4TQxh7m/low-quality-F7-VTzlxrof.jpg",
+      "serviceName": "Ear, Nose & Throat (ENT) Consultation",
+      "price": "$80",
+      "serviceArea": "ENT",
+      "description": "Consultation for ear, nose, and throat problems including hearing loss, sinusitis, and tonsillitis provided by our ENT specialists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/5x14wLm/shot-of-a-doctor-examining-a-patient-with-a-stethoscope-during-a-consultation-in-a-clinic.jpg",
+      "serviceName": "Cardiology Consultation",
+      "price": "$95",
+      "serviceArea": "Cardiology",
+      "description": "Consultation for heart-related issues such as heart disease, hypertension, and arrhythmias provided by our cardiologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/6sqxMMp/doctor-explaining-urological-problems.jpg",
+      "serviceName": "Urology Consultation",
+      "price": "$70",
+      "serviceArea": "Urology",
+      "description": "Consultation for urinary tract and male reproductive system disorders provided by our urologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/CK058Lt/doctor-conducting-ultrasound-examination-of-knee-joint-in-child-closeup.jpg",
+      "serviceName": "Rheumatology Consultation",
+      "price": "$80",
+      "serviceArea": "Rheumatology",
+      "description": "Consultation for autoimmune and inflammatory diseases affecting joints, muscles, and bones provided by our rheumatologists."
+    },
+    {
+      "imageURL": "https://i.ibb.co/874fVbM/closeup-of-woman-lying-on-dental-chair-with-open-mouth.jpg",
+      "serviceName": "Dental Consultation",
+      "price": "$65",
+      "serviceArea": "Dentistry",
+      "description": "Consultation for dental issues including cavities, gum disease, and tooth decay provided by our dentists."
+    }
+  ]
+  

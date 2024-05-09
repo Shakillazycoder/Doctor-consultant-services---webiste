@@ -33,18 +33,18 @@ const Navbar = () => {
             <li>
             <details>
               <summary>Dashboard</summary>
-              <ul className="bg-[#2c3e50] mt-5 w-52 p-3 space-y-4 rounded-2xl text-[#ffff]">
+              <ul className="bg-[#2c3e50] mt-5 w-52 z-50 p-3 space-y-4 rounded-2xl text-[#ffff]">
                 <li className='bg-white text-black rounded-xl p-2'>
-                  <a>Add Service</a>
+                  <NavLink to='/addServices'>Add Service</NavLink>
                 </li>
                 <li className='bg-white text-black rounded-xl p-2'>
-                  <a>Manage Service</a>
+                  <NavLink to='/manageServices'>Manage Service</NavLink>
                 </li>
                 <li className='bg-white text-black rounded-xl p-2'>
-                  <a>Booked-Services</a>
+                  <NavLink to='/bookServices'>Booked-Services</NavLink>
                 </li>
                 <li className='bg-white text-black rounded-xl p-2'>
-                  <a>Service-To-Do</a>
+                  <NavLink to='/servicesToDo'>Service-To-Do</NavLink>
                 </li>
               </ul>
             </details>
@@ -61,7 +61,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="bg-[#2c3e50] text-[#ffff]">
+      <div className="bg-[#2c3e50] z-50 text-[#ffff]">
         <div className="navbar container mx-auto p-3">
         <div className="navbar-start ">
           <div className="dropdown">
