@@ -1,9 +1,25 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../src/assets/logo2.jpeg'
+import { AuthContext } from '../Provider/AuthProvider';
+import { useContext } from 'react';
 
 
 
 const Navbar = () => {
+    const { user, SignOutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+  
+    const handleLogOut = () => {
+      SignOutUser()
+        .then(() => {
+          console.log("Sign-out successful");
+          navigate("/login");
+        })
+        .catch((error) => {
+          console.log(error.message);
+        });
+    };
+
   const navLinks = (
     <>
       <li>
@@ -12,21 +28,36 @@ const Navbar = () => {
       <li>
         <NavLink to='/services'>Services</NavLink>
       </li>
-      <li>
-        <details>
-          <summary>Login</summary>
-          <ul className="bg-[#2c3e50] mt-5 w-52 p-3 space-y-4 rounded-2xl text-[#ffff]">
-            <li className='bg-white text-black rounded-xl p-2'>
-              <a>Submenu 1</a>
-            </li>
-            <li className='bg-white text-black rounded-xl p-2'>
-              <a>Submenu 2</a>
-            </li>
-          </ul>
-        </details>
-      </li>
+      {
+        user?.email ? (
+            <li>
+            <details>
+              <summary>Dashboard</summary>
+              <ul className="bg-[#2c3e50] mt-5 w-52 p-3 space-y-4 rounded-2xl text-[#ffff]">
+                <li className='bg-white text-black rounded-xl p-2'>
+                  <a>Add Service</a>
+                </li>
+                <li className='bg-white text-black rounded-xl p-2'>
+                  <a>Manage Service</a>
+                </li>
+                <li className='bg-white text-black rounded-xl p-2'>
+                  <a>Booked-Services</a>
+                </li>
+                <li className='bg-white text-black rounded-xl p-2'>
+                  <a>Service-To-Do</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+        ) : (
+          <li>
+            <NavLink to='/login'>Login</NavLink>
+          </li>
+        )}
     </>
   );
+
+
 
   return (
     <div>
@@ -69,38 +100,44 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
+        {user ? (
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
+              title={user.displayName}
             >
               <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+                {user.photoURL ? (
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={user.photoURL}
+                  />
+                ) : (
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                )}
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#2c3e50] rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box space-y-3 w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
+                <h2 className='bg-[#3498db]'>{user.displayName}</h2>
+              </li>
+              <li>
+                <a className="bg-red-600 text-white" onClick={handleLogOut}>
+                  Logout
                 </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
               </li>
             </ul>
           </div>
-        </div>
+        ) : ''}
+      </div>
         </div>
       </div>
     </div>
