@@ -8,20 +8,24 @@ const Services = () => {
   const [itemPerPage, setitemPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("");
+  const [search, setSearch] = useState('')
+  const [searchValue, setSearchValue] = useState('')
+  
 
-  const url = `http://localhost:3000/services?page=${currentPage}&size=${itemPerPage}&sort=${sort}`;
+
+  const url = `http://localhost:3000/services?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
   useEffect(() => {
     axios.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [url, sort]);
+  }, [url, sort, search]);
 
-  const url2 = "http://localhost:3000/services/count";
+  const url2 = `http://localhost:3000/services/count?&search=${search}`;
   useEffect(() => {
     axios.get(url2).then((res) => {
       setCount(res.data.count);
     });
-  }, [url2]);
+  }, [url2, search]);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
@@ -36,19 +40,32 @@ const Services = () => {
     setCurrentPage(1); 
   };
 
+  const handleReset = () => {
+    setSort("");
+    setSearch("")
+    setSearchValue("")
+  }
+
+  const handleSearchChange = (e) => {
+    e.preventDefault()
+    setSearch(searchValue)
+  }
+
   return (
     <div>
       <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
         <div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">
-            <form>
+            <form onSubmit={handleSearchChange}>
               <div className="flex p-1 overflow-hidden border rounded-lg    focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
                 <input
                   className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                   type="text"
+                  onChange={e => setSearchValue(e.target.value)}
+                  value={searchValue}
                   name="search"
-                  placeholder="Enter Job Title"
-                  aria-label="Enter Job Title"
+                  placeholder="Enter Your Service Name"
+                  aria-label="Enter Your Service Name"
                 />
 
                 <button className="px-1 md:px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none">
@@ -70,7 +87,8 @@ const Services = () => {
                 <option value="asc">Ascending Order</option>
               </select>
             </div>
-            <button className="btn">Reset</button>
+            {/* reset */}
+            <button onClick={handleReset} className="btn">Reset</button>
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
