@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
           <Link to='/'>
           <div className='flex items-center'>
-            <img src={logo} className='w-10 h-10 md:w-16 md:h-16 rounded-2xl' alt="" />
+            <img src={logo} className='w-10 h-10 md:w-12 md:h-12 rounded-2xl' alt="" />
           <p className="btn btn-ghost text-xl">MedConsultPro</p>
           </div></Link>
         </div>

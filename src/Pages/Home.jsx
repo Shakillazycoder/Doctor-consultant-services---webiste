@@ -1,3 +1,4 @@
+import HealthTips from "../Component/HealthTips";
 import HeroSection from "../Component/HeroSection";
 import PopularServices from "../Component/PopularServices";
 
@@ -7,6 +8,8 @@ const Home = () => {
       <div>
         <HeroSection></HeroSection>
         <PopularServices></PopularServices>
+        <HealthTips></HealthTips>
+        
       </div>
     </div>
   );

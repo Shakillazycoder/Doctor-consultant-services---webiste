@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const PopularCard = ({ service }) => {
   const {
     serviceName,
@@ -6,6 +8,7 @@ const PopularCard = ({ service }) => {
     imageURL,
     userImage,
     userName,
+    _id
   } = service;
   return (
     <div>
@@ -45,10 +48,12 @@ const PopularCard = ({ service }) => {
             <p className="text-grey-dark">Aug 18</p> */}
               </div>
             </div>
-            <div>
+            <div >
+              <Link to={`/viewDetails/${_id}`}>
               <button className="btn bg-[#3498db] flex-grow text-[#ffffff]">
                 View Details
               </button>
+              </Link>
             </div>
           </div>
       </div>
