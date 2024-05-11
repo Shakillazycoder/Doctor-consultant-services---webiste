@@ -101,12 +101,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-end">
+          <div className="dropdown tooltip tooltip-bottom dropdown-end" data-tip={user.displayName}>
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
-              title={user.displayName}
             >
               <div className="w-10 rounded-full">
                 {user.photoURL ? (

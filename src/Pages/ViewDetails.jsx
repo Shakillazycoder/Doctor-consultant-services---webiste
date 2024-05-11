@@ -64,7 +64,7 @@ const ViewDetails = () => {
             timer: 1500,
           });
         }
-        navigate('/')
+        navigate('/bookServices')
       })
      }
 
@@ -144,7 +144,7 @@ const ViewDetails = () => {
                 <div>
                   {/* Open the modal using document.getElementById('ID').showModal() method */}
                   <button
-                    className="btn"
+                    className="btn bg-[#3498db] text-[#ffff]"
                     onClick={() =>
                       document.getElementById("my_modal_5").showModal()
                     }
@@ -206,6 +206,7 @@ const ViewDetails = () => {
                               id="serviceArea"
                               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                               placeholder="New York, NY"
+                              defaultValue={services.serviceArea}
                               required=""
                             />
                           </div>
