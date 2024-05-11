@@ -5,7 +5,7 @@ import ServiceCard from "../Component/ServiceCard";
 const Services = () => {
   const [services, setServices] = useState([]);
   const [count, setCount] = useState([]);
-  const [itemPerPage, setitemPerPage] = useState(5);
+  const [itemPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState('')

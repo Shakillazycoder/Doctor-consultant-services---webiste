@@ -1,12 +1,23 @@
-import axios from "axios";
 import { useContext } from "react";
-import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const AddService = () => {
-  const { user } = useContext(AuthContext);
+const UpdateService = () => {
+    const { user } = useContext(AuthContext);
+    const service = useLoaderData()
 
-  const handleAddService = (e) => {
+    const {
+        serviceName,
+        description,
+        price,
+        imageURL,
+        serviceArea,
+        _id
+      } = service;
+
+  const handleUpdateService = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const serviceName = formData.get("serviceName");
@@ -14,7 +25,7 @@ const AddService = () => {
     const price = formData.get("price");
     const imageURL = formData.get("image");
     const serviceArea = formData.get("serviceArea");
-    const newService = {
+    const updateService = {
       serviceName,
       description,
       price,
@@ -25,27 +36,37 @@ const AddService = () => {
       userEmail: user.email,
       createdAt: new Date(),
     };
-    console.log(newService);
+    console.log(updateService);
 
-    axios.post("http://localhost:3000/services", newService).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Services Added successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
-  };
+   axios.put(`http://localhost:3000/updateService/${_id}`, updateService)
+   .then((res) => {
+    console.log(res.data);
+    if (res.data.error) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Something went wrong",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } else {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Services Updated successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+   })
 
-  return (
-    <div>
+}
+    return (
+        <div>
+            <div>
       <div className="bg-white border md:border-4 rounded-lg shadow relative m-10">
         <div className="flex items-start justify-between p-5 border-b rounded-t">
-          <h3 className="text-xl font-semibold">Add Service</h3>
+          <h3 className="text-xl font-semibold">Update Page</h3>
           <button
             type="button"
             className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
@@ -67,7 +88,7 @@ const AddService = () => {
         </div>
 
         <div className="p-6 space-y-6">
-          <form onSubmit={handleAddService}>
+          <form onSubmit={handleUpdateService}>
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
                 <label
@@ -82,6 +103,7 @@ const AddService = () => {
                   id="serviceName"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder="General Consultation"
+                  defaultValue={serviceName}
                   required=""
                 />
               </div>
@@ -98,6 +120,7 @@ const AddService = () => {
                   id="price"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder="$50"
+                  defaultValue={price}
                   required=""
                 />
               </div>
@@ -114,6 +137,7 @@ const AddService = () => {
                   id="serviceArea"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder="New York, NY"
+                  defaultValue={serviceArea}
                   required=""
                 />
               </div>
@@ -130,6 +154,7 @@ const AddService = () => {
                   id="image"
                   className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
                   placeholder="https://images.pexels.com/photos/3469505/pexels-photo-3469505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  defaultValue={imageURL}
                   required=""
                 />
               </div>
@@ -146,6 +171,7 @@ const AddService = () => {
                   rows="6"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"
                   placeholder="Get a comprehensive consultation with our experienced doctors for any general health concerns."
+                  defaultValue={description}
                 ></textarea>
               </div>
             </div>
@@ -154,14 +180,15 @@ const AddService = () => {
                 className="text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:ring-cyan-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 type="submit"
               >
-                Add Service
+                Update Service
               </button>
             </div>
           </form>
         </div>
       </div>
     </div>
-  );
+        </div>
+    );
 };
 
-export default AddService;
+export default UpdateService;

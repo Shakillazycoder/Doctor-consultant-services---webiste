@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import ServiceCard from "../Component/ServiceCard";
 import { AuthContext } from "../Provider/AuthProvider";
+import MySerVicesCard from "../Component/MyServicesCard";
 
 const ManageService = () => {
     const {user} = useContext(AuthContext)
   const [services, setServices] = useState([]);
   const [count, setCount] = useState([]);
-  const [itemPerPage, setitemPerPage] = useState(5);
+  const [itemPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState('')
@@ -96,7 +96,7 @@ const ManageService = () => {
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
-              <ServiceCard key={service._id} service={service} />
+              <MySerVicesCard key={service._id} service={service} />
             ))}
           </div>
         </div>
