@@ -12,6 +12,7 @@ const ManageService = () => {
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState('')
   const [searchValue, setSearchValue] = useState('')
+  const [remaining, setRemaining] = useState(false)
   
 
 
@@ -20,22 +21,19 @@ const ManageService = () => {
     axios.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [url, sort, search]);
+  }, [url, sort, search, remaining]);
 
   const url2 = `http://localhost:3000/manageService/${user?.email}/count?&search=${search}`;
   useEffect(() => {
     axios.get(url2).then((res) => {
-        console.log(res.data.count);
       setCount(res.data.count);
     });
-  }, [url2, search]);
+  }, [url2, search, remaining]);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
-  console.log(numberOfPages);
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
 
   const handlePaginationButton = (value) => {
-    console.log(value);
     setCurrentPage(value);
   };
 
@@ -96,7 +94,7 @@ const ManageService = () => {
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
-              <MySerVicesCard key={service._id} service={service} />
+              <MySerVicesCard key={service._id} service={service} remaining={remaining} setRemaining={setRemaining} />
             ))}
           </div>
         </div>

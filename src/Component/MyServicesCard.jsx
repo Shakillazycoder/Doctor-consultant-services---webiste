@@ -2,7 +2,8 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MySerVicesCard = ({ service }) => {
+const MySerVicesCard = ({ service, remaining, setRemaining }) => {
+
   const {
     serviceName,
     description,
@@ -15,7 +16,7 @@ const MySerVicesCard = ({ service }) => {
   } = service;
 
   const handleDelete = (_id) => {
-    axios.delete(`http://localhost:3000/servicesDetails/${_id}`).then((res) => {
+    axios.delete(`http://localhost:3000/deleteService/${_id}`).then((res) => {
       console.log(res.data);
       if (res.data.deletedCount > 0) {
         Swal.fire({
@@ -25,6 +26,7 @@ const MySerVicesCard = ({ service }) => {
           showConfirmButton: false,
           timer: 1500,
         });
+        setRemaining(!remaining)
       } else {
         Swal.fire({
           position: "center",
