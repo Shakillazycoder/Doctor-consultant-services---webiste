@@ -44,7 +44,7 @@ import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
             element: <BookServices></BookServices>,
         },
         {
-            path: "/manageServices",
+            path: "/manageServices/",
             element: <ManageService></ManageService>,
         },
         {

@@ -23,6 +23,7 @@ const Services = () => {
   const url2 = `http://localhost:3000/services/count?&search=${search}`;
   useEffect(() => {
     axios.get(url2).then((res) => {
+      console.log(res.data.count);
       setCount(res.data.count);
     });
   }, [url2, search]);

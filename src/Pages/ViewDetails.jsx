@@ -35,6 +35,7 @@ const ViewDetails = () => {
     const userName = formData.get("userName");
     const userEmail = formData.get("userEmail");
     const serviceDate = startDate;
+    const servicesStatus = "pending";
     const bookingService = {
       serviceName,
       serviceId,
@@ -46,6 +47,7 @@ const ViewDetails = () => {
       providerEmail,
       userName,
       userEmail,
+      servicesStatus
     };
     console.table(bookingService);
 
