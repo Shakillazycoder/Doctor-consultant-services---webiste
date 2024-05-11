@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ServiceCard = ({ service }) => {
   const {
     serviceName,
@@ -7,6 +9,7 @@ const ServiceCard = ({ service }) => {
     serviceArea,
     userImage,
     userName,
+    _id
   } = service;
 
   return (
@@ -70,9 +73,11 @@ const ServiceCard = ({ service }) => {
               </div>
             </div>
             <div>
+              <Link to={`/viewDetails/${_id}`}>
               <button className="btn bg-[#3498db] flex-grow text-[#ffffff]">
                 View Details
               </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ import BookServices from "../Pages/BookServices";
 import ManageService from "../Pages/ManageService";
 import ServicesToDo from "../Pages/ServicesToDo";
 import ViewDetails from "../Pages/ViewDetails";
+import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
   
   const router = createBrowserRouter([
     {
@@ -52,7 +53,8 @@ import ViewDetails from "../Pages/ViewDetails";
         },
         {
             path: "/viewDetails/:id",
-            element: <ViewDetails></ViewDetails>,
+            element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
+            loader: ({params}) => fetch(`http://localhost:3000/servicesDetails/${params.id}`) 
         }
       ]
     },

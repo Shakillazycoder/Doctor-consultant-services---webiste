@@ -24,7 +24,7 @@ const PopularCard = ({ service }) => {
             {serviceName}
           </h5>
           <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit mb-5">
-            {description}
+            {description.slice(0, 100)}...
           </p>
           <p className="bg-blue-100/60 text-blue-500 px-3 py-1 w-16 rounded-full">
                 {price}

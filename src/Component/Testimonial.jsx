@@ -5,7 +5,7 @@ const Testimonial = () => {
         <h1>Testimonial</h1>
       </div>
       <div className="flex justify-center mb-20">
-        <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full  lg:flex-row">
+        <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-7xl  lg:flex-row">
           <div className="relative lg:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
             <img
               src="https://i.ibb.co/BzM7H0J/my-daughter-isn-t-afraid-pay-visit-here-329181-7634.jpg"
@@ -14,7 +14,7 @@ const Testimonial = () => {
             />
           </div>
           <div className="p-6">
-            <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+            <h4 className="block mb-2 font-sans text-5xl w-3/4 antialiased font-semibold leading-snug tracking-normal text-[#4f44ce]">
               Our Clients happy Say About Us
             </h4>
             {/* testimonial */}
