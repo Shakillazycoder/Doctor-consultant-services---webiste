@@ -36,30 +36,31 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      //   const userEmail = currentUser?.email || user?.email;
-      //   console.log(userEmail);
+      const userEmail = currentUser?.email || user?.email;
+      console.log(userEmail);
 
-      //   const loggedUser = {email: userEmail}
+      const loggedUser = { email: userEmail };
 
       setUser(currentUser);
       setLoading(false);
       console.log(currentUser);
-      //   if(currentUser){
-      //     axios.post('https://workwise-server.vercel.app/jwt', loggedUser, {
-      //       withCredentials: true
-      //     })
-      //     .then( res => {
-      //       console.log("token response", res.data);
-      //     })
-      //   }else {
-      //     axios
-      //       .post("https://workwise-server.vercel.app/logout", loggedUser, {
-      //         withCredentials: true,
-      //       })
-      //       .then((res) => {
-      //         console.log(res.data);
-      //       });
-      //   }
+      if (currentUser) {
+        axios
+          .post("http://localhost:3000/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("token response", res.data);
+          });
+      } else {
+        axios
+          .post("http://localhost:3000/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
     });
     return () => {
       unsubscribe();
@@ -82,3 +83,4 @@ const AuthProvider = ({ children }) => {
 export default AuthProvider;
 // import axios from "axios";
 import auth from "../Firebase/firebase.config";
+import axios from "axios";

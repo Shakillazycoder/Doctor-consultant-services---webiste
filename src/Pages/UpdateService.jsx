@@ -1,12 +1,12 @@
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
-import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const UpdateService = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const service = useLoaderData();
+  const axiosSecure = useAxiosSecure()
 
   const { serviceName, description, price, imageURL, serviceArea, _id } =
     service;
@@ -32,8 +32,8 @@ const UpdateService = () => {
     };
     console.log(updateService);
 
-    axios
-      .put(`http://localhost:3000/updateService/${_id}`, updateService)
+    axiosSecure
+      .put(`/updateService/${_id}`, updateService)
       .then((res) => {
         console.log(res.data);
         // if (res.data.error) {

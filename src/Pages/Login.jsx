@@ -1,14 +1,14 @@
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
-import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../Provider/AuthProvider";
 import login from "../../src/assets/login.jpg";
+import useAuth from "../Hooks/useAuth";
+import { useState } from "react";
 
 const Login = () => {
   const [ShowPassword, SetShowPassword] = useState(false);
-  const { signInUser, googleSignIn } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useAuth();
   const Navigate = useNavigate();
   const location = useLocation();
 

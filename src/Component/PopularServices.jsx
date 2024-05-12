@@ -1,17 +1,18 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import PopularCard from "./PopularCard";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const PopularServices = () => {
   const [popularServices, setPopularServices] = useState([]);
+  const axiosSecure = useAxiosSecure()
 
-  const url = "http://localhost:3000/popularServices";
+  const url = "/popularServices";
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axiosSecure.get(url).then((res) => {
       setPopularServices(res.data);
     });
-  }, []);
+  }, [axiosSecure]);
 
   return (
     <div className="my-20">

@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import { useEffect, useState } from "react";
 import MySerVicesCard from "../Component/MyServicesCard";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ManageService = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [services, setServices] = useState([]);
   const [count, setCount] = useState([]);
   const [itemPerPage] = useState(5);
@@ -13,20 +13,21 @@ const ManageService = () => {
   const [search, setSearch] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [remaining, setRemaining] = useState(false);
+  const axiosSecure = useAxiosSecure();
 
-  const url = `http://localhost:3000/manageService/${user?.email}?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
+  const url = `/manageService/${user?.email}?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axiosSecure.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [url, sort, search, remaining]);
+  }, [url, sort, search, remaining, axiosSecure]);
 
-  const url2 = `http://localhost:3000/manageService/${user?.email}/count?&search=${search}`;
+  const url2 = `/manageService/${user?.email}/count?&search=${search}`;
   useEffect(() => {
-    axios.get(url2).then((res) => {
+    axiosSecure.get(url2).then((res) => {
       setCount(res.data.count);
     });
-  }, [url2, search, remaining]);
+  }, [url2, search, remaining, axiosSecure]);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
@@ -88,7 +89,10 @@ const ManageService = () => {
               </select>
             </div>
             {/* reset */}
-            <button onClick={handleReset} className="btn bg-gray-200 text-gray-600">
+            <button
+              onClick={handleReset}
+              className="btn bg-gray-200 text-gray-600"
+            >
               Reset
             </button>
           </div>

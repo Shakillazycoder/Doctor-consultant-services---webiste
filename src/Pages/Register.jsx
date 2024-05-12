@@ -1,16 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
-import { AuthContext } from "../Provider/AuthProvider";
 import register from "../../src/assets/login.jpg";
+import useAuth from "../Hooks/useAuth";
 
 const Register = () => {
   const [ShowPassword, SetShowPassword] = useState(false);
 
-  const { CreateUser, setProfileUpdate } = useContext(AuthContext);
+  const { CreateUser, setProfileUpdate } = useAuth();
   const Navigate = useNavigate();
 
   const HandleRegister = (e) => {

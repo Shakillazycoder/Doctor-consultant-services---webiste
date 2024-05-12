@@ -1,22 +1,23 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import {useEffect, useState } from "react";
 import BookingCard from "../Component/BookingCard";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const BookServices = () => {
-    const {user} = useContext(AuthContext)
+    const {user} = useAuth()
     const [bookings, SetBookings] = useState([])
+    const axiosSecure = useAxiosSecure()
 
 
-    const url = `http://localhost:3000/booking/${user?.email}`;
+    const url = `/booking/${user?.email}`;
 
     useEffect(() => {
-        axios.get(url)
+      axiosSecure.get(url)
          .then((res) => {
             console.log(res.data);
             SetBookings(res.data)
           })
-    }, [url])
+    }, [url, axiosSecure])
 
     return (
         <div>

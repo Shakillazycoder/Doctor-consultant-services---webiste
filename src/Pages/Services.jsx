@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ServiceCard from "../Component/ServiceCard";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -8,25 +8,24 @@ const Services = () => {
   const [itemPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("");
-  const [search, setSearch] = useState('')
-  const [searchValue, setSearchValue] = useState('')
-  
+  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const axiosSecure = useAxiosSecure();
 
-
-  const url = `http://localhost:3000/services?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
+  const url = `/services?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axiosSecure.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [url, sort, search]);
+  }, [url, sort, search, axiosSecure]);
 
-  const url2 = `http://localhost:3000/services/count?&search=${search}`;
+  const url2 = `/services/count?&search=${search}`;
   useEffect(() => {
-    axios.get(url2).then((res) => {
+    axiosSecure.get(url2).then((res) => {
       console.log(res.data.count);
       setCount(res.data.count);
     });
-  }, [url2, search]);
+  }, [url2, search, axiosSecure]);
 
   const numberOfPages = Math.ceil(count / itemPerPage);
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
@@ -38,19 +37,19 @@ const Services = () => {
 
   const handleSortChange = (e) => {
     setSort(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleReset = () => {
     setSort("");
-    setSearch("")
-    setSearchValue("")
-  }
+    setSearch("");
+    setSearchValue("");
+  };
 
   const handleSearchChange = (e) => {
-    e.preventDefault()
-    setSearch(searchValue)
-  }
+    e.preventDefault();
+    setSearch(searchValue);
+  };
 
   return (
     <div>
@@ -62,7 +61,7 @@ const Services = () => {
                 <input
                   className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                   type="text"
-                  onChange={e => setSearchValue(e.target.value)}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   value={searchValue}
                   name="search"
                   placeholder="Enter Your Service Name"
@@ -89,7 +88,12 @@ const Services = () => {
               </select>
             </div>
             {/* reset */}
-            <button onClick={handleReset} className="btn bg-gray-200 text-gray-700">Reset</button>
+            <button
+              onClick={handleReset}
+              className="btn bg-gray-200 text-gray-700"
+            >
+              Reset
+            </button>
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (

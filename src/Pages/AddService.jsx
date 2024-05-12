@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useContext } from "react";
 import Swal from "sweetalert2";
-import { AuthContext } from "../Provider/AuthProvider";
+import useAuth from "../Hooks/useAuth";
 
 const AddService = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
 
   const handleAddService = (e) => {
     e.preventDefault();

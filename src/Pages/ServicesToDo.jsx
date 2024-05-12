@@ -1,21 +1,22 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import ServicesToDoCard from "../Component/ServicesToDoCard";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ServicesToDo = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [servicesToDo, setServicesToDo] = useState([]);
   const [statusUpdate, setStatusUpdate] = useState(false);
+  const axiosSecure = useAxiosSecure()
 
-  const url = `http://localhost:3000/servicesToDo/${user?.email}`;
+  const url = `/servicesToDo/${user?.email}`;
   console.log(url);
   useEffect(() => {
-    axios.get(url).then((res) => {
+    axiosSecure.get(url).then((res) => {
       console.log(res.data);
       setServicesToDo(res.data);
     });
-  }, [url, statusUpdate]);
+  }, [url, statusUpdate, axiosSecure]);
   console.log(servicesToDo.length);
   return (
     <div className="flex justify-center items-center my-20">

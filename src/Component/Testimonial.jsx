@@ -1,11 +1,11 @@
 const Testimonial = () => {
   return (
     <div>
-      <div className="text-center text-5xl font-bold my-5">
+      <div className="text-center text-5xl font-bold my-10">
         <h1>Testimonial</h1>
       </div>
       <div className="flex justify-center mb-20">
-        <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-7xl  lg:flex-row">
+        <div className="relative flex flex-col bg-clip-border rounded-xl bg-[#f5f5f5] text-gray-700 shadow-md w-full max-w-7xl  lg:flex-row">
           <div className="relative lg:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
             <img
               src="https://i.ibb.co/BzM7H0J/my-daughter-isn-t-afraid-pay-visit-here-329181-7634.jpg"
