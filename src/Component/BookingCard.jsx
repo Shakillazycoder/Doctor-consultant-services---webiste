@@ -89,7 +89,7 @@ const BookingCard = ({ booking }) => {
                       servicesStatus === "Booked" && "bg-green-500"
                     } ${
                         servicesStatus === 'Cancel' &&
-                        'bg-red-100/60 text-red-500'
+                        'bg-red-500'
                       } `}
                   ></span>
                   <h2 className="text-sm font-normal ">{servicesStatus}</h2>
