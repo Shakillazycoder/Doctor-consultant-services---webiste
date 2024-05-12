@@ -42,7 +42,7 @@ const ServiceCard = ({ service }) => {
               {serviceName}
             </div>
             {/* Description */}
-            <p className="text-grey-darker flex-grow text-base">
+            <p className="text-grey-darker flex-grow text-base dark:text-gray-700 ">
               {description}
             </p>
             <div className="flex gap-10 mt-5">

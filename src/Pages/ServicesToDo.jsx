@@ -18,8 +18,8 @@ const ServicesToDo = () => {
   }, [url, statusUpdate]);
   console.log(servicesToDo.length);
   return (
-    <div>
-      <div className="mt-5 container mx-auto space-y-5 items-center my-20">
+    <div className="flex justify-center items-center my-20">
+      <div className="mt-5  space-y-5">
         {servicesToDo.map((booking, index) => (
           <ServicesToDoCard
             key={index}

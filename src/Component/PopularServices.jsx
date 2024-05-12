@@ -14,7 +14,7 @@ const PopularServices = () => {
   }, []);
 
   return (
-    <div>
+    <div className="my-20">
       <div className="text-center text-5xl font-bold">
         <h1>Our Popular Services</h1>
       </div>

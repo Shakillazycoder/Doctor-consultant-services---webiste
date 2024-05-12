@@ -9,7 +9,7 @@ const Faculty = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* 1st profile */}
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co/WPVs4VF/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-postur.jpg"
@@ -33,7 +33,7 @@ const Faculty = () => {
           </div>
         </div>
         {/* 2nd profile */}
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co/4sVYCHJ/smiling-doctor-with-strethoscope-isolated-grey-651396-974.jpg"
@@ -57,7 +57,7 @@ const Faculty = () => {
           </div>
         </div>
         {/* 3rd profile */}
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co/cDGY6n8/hospital-healthcare-workers-covid-19-treatment-concept-young-doctor-scrubs-making-daily-errands-clin.jpg"
@@ -80,7 +80,7 @@ const Faculty = () => {
           </div>
         </div>
         {/* 4th profile */}
-        <div className="card bg-base-100 shadow-xl">
+        <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co/74VvCFb/portrait-beautiful-young-female-doctor-white-medical-jacket-isolated-white-background-brunette-woman.jpg"

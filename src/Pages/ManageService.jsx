@@ -80,7 +80,7 @@ const ManageService = () => {
                 name="sort"
                 value={sort}
                 id="sort"
-                className="border p-4 rounded-md"
+                className="border bg-base-200 p-4 rounded-md"
               >
                 <option value="">Sort By price</option>
                 <option value="desc">Descending Order</option>
@@ -88,7 +88,7 @@ const ManageService = () => {
               </select>
             </div>
             {/* reset */}
-            <button onClick={handleReset} className="btn">
+            <button onClick={handleReset} className="btn bg-gray-200 text-gray-600">
               Reset
             </button>
           </div>

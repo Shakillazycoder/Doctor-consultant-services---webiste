@@ -69,7 +69,8 @@ const ViewDetails = () => {
      }
 
   return (
-    <div>
+    <div className="dark:bg-white ">
+      <div className=" bg-white lg:p-10 my-20">
       {/* Service Provider information */}
       <div className="text-center space-y-4">
         <div className="flex justify-center mt-5">
@@ -95,23 +96,13 @@ const ViewDetails = () => {
             {/* Right section with content */}
             <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
               <div className="mb-8">
-                {/* Badge: Members only */}
-                <p className="text-sm text-grey-dark  flex items-center">
-                  <svg
-                    className="text-grey w-3 h-3 mr-2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                  </svg>
-                  Members only
-                </p>
+
                 {/* Title */}
                 <div className="text-black font-bold text-xl mb-2">
                   {services.serviceName}
                 </div>
                 {/* Description */}
-                <p className="text-grey-darker flex-grow text-base">
+                <p className="text-grey-darker flex-grow text-base dark:text-gray-700">
                   {services.description}
                 </p>
                 <div className="flex gap-10 mt-5">
@@ -346,6 +337,7 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

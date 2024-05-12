@@ -49,7 +49,7 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
   console.log("Rendering ServicesToDoCard with statusUpdate:", statusUpdate);
 
   return (
-    <div className="flex container mx-auto justify-center">
+    <div className="flex container mx-auto justify-center ">
       {/* <!-- component --> */}
       <div className="w-full  md:max-w-7xl lg:flex">
         {/* Left section with image */}
@@ -60,7 +60,7 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
         ></div>
 
         {/* Provider section with content */}
-        <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white text-gray-600 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal ">
           <div className="mb-8">
             <div className="space-y-4">
               <p className="text-2xl font-bold">Provider Information</p>
@@ -89,13 +89,13 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
           </div>
         </div>
         {/* User section with content */}
-        <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white text-gray-600 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">
             <div className="mb-4">
               <p className="text-2xl font-bold">User Information</p>
             </div>
             {/* Title */}
-            <div className="text-black font-bold text-xl mb-2">{userEmail}</div>
+            <div className="text-black text-xl mb-2">{userEmail}</div>
             {/* Description */}
             <p className="text-grey-darker flex-grow text-base">{userName}</p>
             <div className="flex gap-10 mt-5">

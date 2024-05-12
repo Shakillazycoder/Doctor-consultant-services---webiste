@@ -81,7 +81,7 @@ const Services = () => {
                 name="sort"
                 value={sort}
                 id="sort"
-                className="border p-4 rounded-md"
+                className="border p-4 rounded-md bg-gray-200 dark:text-gray-700"
               >
                 <option value="">Sort By price</option>
                 <option value="desc">Descending Order</option>
@@ -89,7 +89,7 @@ const Services = () => {
               </select>
             </div>
             {/* reset */}
-            <button onClick={handleReset} className="btn">Reset</button>
+            <button onClick={handleReset} className="btn bg-gray-200 text-gray-700">Reset</button>
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
