@@ -52,7 +52,8 @@ const ViewDetails = () => {
     };
     console.table(bookingService);
 
-    axiosSecure.post("/booking", bookingService).then((res) => {
+    axiosSecure.post("/booking", bookingService)
+    .then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
@@ -64,7 +65,14 @@ const ViewDetails = () => {
         });
       }
       navigate("/bookServices");
-    });
+    })
+    .catch( () => {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "you already booked this service",
+      });
+    })
   };
 
   return (

@@ -20,11 +20,21 @@ const MySerVicesCard = ({ service, remaining, setRemaining }) => {
       console.log(res.data);
       if (res.data.deletedCount > 0) {
         Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Service deleted successfully",
-          showConfirmButton: false,
-          timer: 1500,
+          title: "Are you sure?",
+          text: "You won't be able to delete this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
         });
         setRemaining(!remaining)
       } else {
