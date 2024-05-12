@@ -4,17 +4,15 @@ import { AuthContext } from "../Provider/AuthProvider";
 import MySerVicesCard from "../Component/MyServicesCard";
 
 const ManageService = () => {
-    const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [services, setServices] = useState([]);
   const [count, setCount] = useState([]);
   const [itemPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState("");
-  const [search, setSearch] = useState('')
-  const [searchValue, setSearchValue] = useState('')
-  const [remaining, setRemaining] = useState(false)
-  
-
+  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [remaining, setRemaining] = useState(false);
 
   const url = `http://localhost:3000/manageService/${user?.email}?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
   useEffect(() => {
@@ -39,19 +37,19 @@ const ManageService = () => {
 
   const handleSortChange = (e) => {
     setSort(e.target.value);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleReset = () => {
     setSort("");
-    setSearch("")
-    setSearchValue("")
-  }
+    setSearch("");
+    setSearchValue("");
+  };
 
   const handleSearchChange = (e) => {
-    e.preventDefault()
-    setSearch(searchValue)
-  }
+    e.preventDefault();
+    setSearch(searchValue);
+  };
 
   return (
     <div>
@@ -63,7 +61,7 @@ const ManageService = () => {
                 <input
                   className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
                   type="text"
-                  onChange={e => setSearchValue(e.target.value)}
+                  onChange={(e) => setSearchValue(e.target.value)}
                   value={searchValue}
                   name="search"
                   placeholder="Enter Your Service Name"
@@ -90,11 +88,18 @@ const ManageService = () => {
               </select>
             </div>
             {/* reset */}
-            <button onClick={handleReset} className="btn">Reset</button>
+            <button onClick={handleReset} className="btn">
+              Reset
+            </button>
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
-              <MySerVicesCard key={service._id} service={service} remaining={remaining} setRemaining={setRemaining} />
+              <MySerVicesCard
+                key={service._id}
+                service={service}
+                remaining={remaining}
+                setRemaining={setRemaining}
+              />
             ))}
           </div>
         </div>

@@ -1,4 +1,7 @@
-const BookingCard = ({ booking }) => {
+import axios from "axios";
+import Swal from "sweetalert2";
+
+const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
   const {
     serviceName,
     price,
@@ -12,6 +15,38 @@ const BookingCard = ({ booking }) => {
     serviceDate,
     _id,
   } = booking;
+
+  const handleStatus = (id, previousStatus, serviceStatus) => {
+    console.log(id, previousStatus, serviceStatus);
+    if (previousStatus === serviceStatus) return;
+    axios
+      .patch(`http://localhost:3000/statusUpdate/${id}`, {
+        servicesStatus: serviceStatus,
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Services Updated successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setStatusUpdate(!statusUpdate);
+        } else {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Something went wrong",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
+
+  console.log("Rendering ServicesToDoCard with statusUpdate:", statusUpdate);
 
   return (
     <div className="flex container mx-auto justify-center">
@@ -69,32 +104,29 @@ const BookingCard = ({ booking }) => {
               </p>
             </div>
             <div>
-              <div className="flex gap-10 mt-10">
-                <div
-                  className={`inline-flex items-center px-3 py-1 rounded-full gap-x-2 ${
-                    servicesStatus === "pending" &&
-                    "bg-yellow-100/60 text-yellow-500"
-                  } ${
-                    servicesStatus === "Booked" &&
-                    "bg-emerald-100/60 text-emerald-500"
-                  } ${
-                    servicesStatus === 'Cancel' &&
-                    'bg-red-100/60 text-red-500'
-                  } `}
-                >
-                  <span
-                    className={`h-1.5 w-1.5 rounded-full ${
-                      servicesStatus === "pending" && "bg-yellow-500"
-                    }  ${
-                      servicesStatus === "Booked" && "bg-green-500"
-                    } ${
-                        servicesStatus === 'Cancel' &&
-                        'bg-red-500'
-                      } `}
-                  ></span>
-                  <h2 className="text-sm font-normal ">{servicesStatus}</h2>
-                </div>
-              </div>
+              <div className="flex gap-10 mt-10"></div>
+              <select
+                value={servicesStatus}
+                onChange={(e) =>
+                  handleStatus(_id, servicesStatus, e.target.value)
+                }
+                className={`select select-bordered w-full max-w-xs ${
+                  servicesStatus === "pending" &&
+                  "bg-yellow-100/60 text-yellow-500"
+                } ${servicesStatus === "Booked" && 'bg-emerald-100/60 text-emerald-500'} ${
+                  servicesStatus === "Cancel" && "bg-red-100/60 text-red-500"
+                }`}
+              >
+                <option value="pending" disabled={servicesStatus !== "pending"}>
+                  Pending
+                </option>
+                <option value="Booked" disabled={servicesStatus === "Booked"}>
+                  Booked
+                </option>
+                <option value="Cancel" disabled={servicesStatus === "Cancel"}>
+                  Cancel
+                </option>
+              </select>
             </div>
           </div>
         </div>
@@ -103,4 +135,4 @@ const BookingCard = ({ booking }) => {
   );
 };
 
-export default BookingCard;
+export default ServicesToDoCard;
