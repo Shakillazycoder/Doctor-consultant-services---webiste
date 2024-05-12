@@ -38,11 +38,11 @@ import UpdateService from "../Pages/UpdateService";
         },
         {
             path: "/addServices",
-            element: <AddService></AddService>,
+            element: <PrivateRoutes><AddService></AddService></PrivateRoutes>,
         },
         {
             path: "/bookServices",
-            element: <BookServices></BookServices>,
+            element: <PrivateRoutes><BookServices></BookServices></PrivateRoutes>,
         },
         {
             path: "/manageServices/",
@@ -50,7 +50,7 @@ import UpdateService from "../Pages/UpdateService";
         },
         {
             path: "/servicesToDo",
-            element: <ServicesToDo></ServicesToDo>,
+            element: <PrivateRoutes><ServicesToDo></ServicesToDo></PrivateRoutes>,
         },
         {
             path: "/viewDetails/:id",
