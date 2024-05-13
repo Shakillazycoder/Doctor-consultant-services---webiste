@@ -56,6 +56,9 @@ const ViewDetails = () => {
     .then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
+        // Close the modal
+        document.getElementById("my_modal_5").close();
+        // Show success SweetAlert
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -67,6 +70,9 @@ const ViewDetails = () => {
       navigate("/bookServices");
     })
     .catch( () => {
+      // Close the modal
+      document.getElementById("my_modal_5").close();
+      // Show success SweetAlert
       Swal.fire({
         position: "top-end",
         icon: "error",

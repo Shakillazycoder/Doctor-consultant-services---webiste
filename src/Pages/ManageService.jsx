@@ -97,14 +97,18 @@ const ManageService = () => {
             </button>
           </div>
           <div className="mt-5 space-y-5 items-center">
-            {services.map((service) => (
-              <MySerVicesCard
-                key={service._id}
-                service={service}
-                remaining={remaining}
-                setRemaining={setRemaining}
-              />
-            ))}
+            {services.length === 0
+              ? (
+                <div className="flex justify-center items-center h-96 text-3xl font-bold">No Services found for your account</div>
+              )
+              : services.map((service) => (
+                  <MySerVicesCard
+                    key={service._id}
+                    service={service}
+                    remaining={remaining}
+                    setRemaining={setRemaining}
+                  />
+                ))}
           </div>
         </div>
 

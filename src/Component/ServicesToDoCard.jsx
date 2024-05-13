@@ -1,5 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
 
 const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
   const {
@@ -16,8 +17,10 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
     _id,
   } = booking;
 
+  const {user} = useAuth()
+
+
   const handleStatus = (id, previousStatus, serviceStatus) => {
-    console.log(id, previousStatus, serviceStatus);
     if (previousStatus === serviceStatus) return;
     axios
       .patch(`http://localhost:3000/statusUpdate/${id}`, {
@@ -46,7 +49,9 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
       });
   };
 
-  console.log("Rendering ServicesToDoCard with statusUpdate:", statusUpdate);
+  console.log(providerEmail);
+  console.log(user.email);
+
 
   return (
     <div className="flex container mx-auto justify-center ">

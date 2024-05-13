@@ -13,12 +13,13 @@ import ServicesToDo from "../Pages/ServicesToDo";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import UpdateService from "../Pages/UpdateService";
+import ErrorPage from "../Pages/ErrorPage";
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
-      errorElement: <h1>404 Not Found</h1>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: "/",
