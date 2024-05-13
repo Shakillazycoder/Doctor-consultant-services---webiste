@@ -15,12 +15,12 @@ const ManageService = () => {
   const [remaining, setRemaining] = useState(false);
   const axiosSecure = useAxiosSecure();
 
-  const url = `/manageService/${user?.email}?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
   useEffect(() => {
+    const url = `/manageService/${user?.email}?page=${currentPage}&size=${itemPerPage}&sort=${sort}&search=${search}`;
     axiosSecure.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [url, sort, search, remaining, axiosSecure]);
+  }, [axiosSecure, currentPage, itemPerPage, search, sort, user?.email]);
 
   const url2 = `/manageService/${user?.email}/count?&search=${search}`;
   useEffect(() => {

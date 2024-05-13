@@ -1,6 +1,5 @@
 import axios from "axios";
 import Swal from "sweetalert2";
-import useAuth from "../Hooks/useAuth";
 
 const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
   const {
@@ -17,7 +16,6 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
     _id,
   } = booking;
 
-  const {user} = useAuth()
 
 
   const handleStatus = (id, previousStatus, serviceStatus) => {
@@ -48,9 +46,6 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
         }
       });
   };
-
-  console.log(providerEmail);
-  console.log(user.email);
 
 
   return (
