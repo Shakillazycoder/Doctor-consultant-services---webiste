@@ -6,7 +6,8 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 const UpdateService = () => {
   const { user } = useAuth();
   const service = useLoaderData();
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
+
 
   const { serviceName, description, price, imageURL, serviceArea, _id } =
     service;
@@ -30,29 +31,10 @@ const UpdateService = () => {
       userEmail: user.email,
       createdAt: new Date(),
     };
-    console.log(updateService);
 
     axiosSecure
       .put(`/updateService/${_id}`, updateService)
       .then((res) => {
-        console.log(res.data);
-        // if (res.data.error) {
-        //   Swal.fire({
-        //     position: "center",
-        //     icon: "error",
-        //     title: "Something went wrong",
-        //     showConfirmButton: false,
-        //     timer: 1500,
-        //   });
-        // } else {
-        //   Swal.fire({
-        //     position: "center",
-        //     icon: "success",
-        //     title: "Services Updated successfully",
-        //     showConfirmButton: false,
-        //     timer: 1500,
-        //   });
-        // }
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             title: "Do you want to save the changes?",
@@ -82,7 +64,7 @@ const UpdateService = () => {
   return (
     <div>
       <div>
-        <div className="bg-white border md:border-4 rounded-lg shadow relative m-10">
+        <div className="bg-white text-black border md:border-4 rounded-lg shadow relative m-10">
           <div className="flex items-start justify-between p-5 border-b rounded-t">
             <h3 className="text-xl font-semibold">Update Page</h3>
             <button

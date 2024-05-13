@@ -24,10 +24,8 @@ const AddService = () => {
       userEmail: user.email,
       createdAt: new Date(),
     };
-    console.log(newService);
 
     axios.post("http://localhost:3000/services", newService).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
           position: "center",
@@ -42,7 +40,7 @@ const AddService = () => {
 
   return (
     <div>
-      <div className="bg-white border md:border-4 rounded-lg shadow relative m-10">
+      <div className="bg-white text-black border md:border-4 rounded-lg shadow relative m-10">
         <div className="flex items-start justify-between p-5 border-b rounded-t">
           <h3 className="text-xl font-semibold">Add Service</h3>
           <button

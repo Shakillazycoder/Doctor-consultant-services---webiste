@@ -25,7 +25,6 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
         servicesStatus: serviceStatus,
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             position: "center",

@@ -1,20 +1,30 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../src/assets/logo2.jpeg";
 import useAuth from "../Hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { user, SignOutUser } = useAuth();
   const navigate = useNavigate();
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "default"); // State to manage theme
 
   const handleLogOut = () => {
     SignOutUser()
       .then(() => {
-        console.log("Sign-out successful");
         navigate("/login");
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === "default" ? "synthwave" : "default");
   };
 
   const navLinks = (
@@ -63,6 +73,7 @@ const Navbar = () => {
                 tabIndex={0}
                 role="button"
                 className="btn btn-ghost lg:hidden"
+                onClick={toggleTheme} // 
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -106,6 +117,8 @@ const Navbar = () => {
                 type="checkbox"
                 value="synthwave"
                 className="toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2"
+                checked={theme === "synthwave"} // Add checked attribute based on theme
+                onChange={toggleTheme} // Add onChange handler for theme toggle
               />
               <svg
                 className="col-start-1 row-start-1 stroke-base-100 fill-base-100"
@@ -139,7 +152,7 @@ const Navbar = () => {
             </label>
             {user ? (
               <div
-                className="dropdown tooltip tooltip-bottom dropdown-end"
+                className="dropdown tooltip ml-5 tooltip-bottom dropdown-end"
                 data-tip={user.displayName}
               >
                 <div

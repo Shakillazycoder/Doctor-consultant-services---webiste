@@ -22,7 +22,6 @@ const Services = () => {
   const url2 = `/services/count?&search=${search}`;
   useEffect(() => {
     axiosSecure.get(url2).then((res) => {
-      console.log(res.data.count);
       setCount(res.data.count);
     });
   }, [url2, search, axiosSecure]);
@@ -31,7 +30,6 @@ const Services = () => {
   const pages = [...Array(numberOfPages).keys()].map((page) => page + 1);
 
   const handlePaginationButton = (value) => {
-    console.log(value);
     setCurrentPage(value);
   };
 
@@ -80,7 +78,7 @@ const Services = () => {
                 name="sort"
                 value={sort}
                 id="sort"
-                className="border p-4 rounded-md bg-gray-200 dark:text-gray-700"
+                className="border p-4 rounded-md bg-base-200"
               >
                 <option value="">Sort By price</option>
                 <option value="desc">Descending Order</option>

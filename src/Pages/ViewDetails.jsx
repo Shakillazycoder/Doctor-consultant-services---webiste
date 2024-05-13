@@ -8,7 +8,6 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ViewDetails = () => {
   const services = useLoaderData();
-  console.log(services);
   const { user } = useAuth();
   const [startDate, setStartDate] = useState(new Date());
   const navigate = useNavigate();
@@ -17,6 +16,7 @@ const ViewDetails = () => {
   const handleBooking = (e) => {
     e.preventDefault();
     if (user?.email === services.userEmail) {
+      document.getElementById("my_modal_5").close();
       Swal.fire({
         position: "top-end",
         icon: "error",
@@ -50,11 +50,9 @@ const ViewDetails = () => {
       userEmail,
       servicesStatus,
     };
-    console.table(bookingService);
 
     axiosSecure.post("/booking", bookingService)
     .then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         // Close the modal
         document.getElementById("my_modal_5").close();
@@ -82,7 +80,7 @@ const ViewDetails = () => {
   };
 
   return (
-    <div className="dark:bg-white ">
+    <div className="bg-white text-black rounded-2xl">
       <div className=" bg-white lg:p-10 my-20">
         {/* Service Provider information */}
         <div className="text-center space-y-4">
@@ -338,7 +336,7 @@ const ViewDetails = () => {
                         <div className="modal-action">
                           <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button className="btn bg-gray-300 text-black">Close</button>
                           </form>
                         </div>
                       </div>
