@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ServiceCard from "../Component/ServiceCard";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Fade } from "react-awesome-reveal";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -95,7 +96,9 @@ const Services = () => {
           </div>
           <div className="mt-5 space-y-5 items-center">
             {services.map((service) => (
+              <Fade key={service._id} direction="up" delay={service._id * 200} duration={1000} triggerOnce={true} distance="30px">
               <ServiceCard key={service._id} service={service} />
+              </Fade>
             ))}
           </div>
         </div>

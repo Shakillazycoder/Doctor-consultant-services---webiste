@@ -176,7 +176,7 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box space-y-3 w-52"
                 >
                   <li>
-                    <h2 className="bg-[#3498db]">{user.displayName}</h2>
+                    <h2 className="bg-[#3498db] ">{user.displayName}</h2>
                   </li>
                   <li>
                     <a className="bg-red-600 text-white" onClick={handleLogOut}>

@@ -1,4 +1,5 @@
 import { FaLinkedin } from "react-icons/fa6";
+import { Fade } from "react-awesome-reveal";
 
 const Faculty = () => {
   return (
@@ -9,7 +10,10 @@ const Faculty = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* 1st profile */}
-        <div className="card bg-white text-gray-700 shadow-xl">
+        <Fade triggerOnce={true} direction="left">
+        <div
+          className="card bg-white text-gray-700 shadow-xl"
+        >
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co/WPVs4VF/pleased-young-female-doctor-wearing-medical-robe-stethoscope-around-neck-standing-with-closed-postur.jpg"
@@ -32,7 +36,9 @@ const Faculty = () => {
             </div>
           </div>
         </div>
+        </Fade>
         {/* 2nd profile */}
+        <Fade triggerOnce={true} direction="up">
         <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
@@ -56,7 +62,9 @@ const Faculty = () => {
             </div>
           </div>
         </div>
+        </Fade>
         {/* 3rd profile */}
+        <Fade triggerOnce={true} direction="up">
         <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
@@ -79,7 +87,9 @@ const Faculty = () => {
             </div>
           </div>
         </div>
+        </Fade>
         {/* 4th profile */}
+        <Fade triggerOnce={true} direction="right">
         <div className="card bg-white text-gray-700 shadow-xl">
           <figure className="px-10 pt-10">
             <img
@@ -102,6 +112,7 @@ const Faculty = () => {
             </div>
           </div>
         </div>
+        </Fade>
       </div>
     </div>
   );

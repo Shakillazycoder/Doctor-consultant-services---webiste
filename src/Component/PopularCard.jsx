@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
+
 
 const PopularCard = ({ service }) => {
   const {
@@ -48,13 +51,16 @@ const PopularCard = ({ service }) => {
             <p className="text-grey-dark">Aug 18</p> */}
               </div>
             </div>
-            <div >
+            <motion.div whileHover={{
+                    scale: 1.1,
+                    x: -15,
+                  }}>
               <Link to={`/viewDetails/${_id}`}>
-              <button className="btn bg-[#3498db] flex-grow text-[#ffffff]">
+              <button className="btn bg-[#3498db] hover:bg-[#65b6e9] flex-grow text-[#ffffff]">
                 View Details
               </button>
               </Link>
-            </div>
+            </motion.div>
           </div>
       </div>
     </div>
