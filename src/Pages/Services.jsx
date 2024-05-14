@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ServiceCard from "../Component/ServiceCard";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -52,6 +53,9 @@ const Services = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Services - MedConsultPro</title>
+      </Helmet>
       <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
         <div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">

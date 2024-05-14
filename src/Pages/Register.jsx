@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import register from "../../src/assets/login.jpg";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [ShowPassword, SetShowPassword] = useState(false);
@@ -107,6 +108,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Register - MedConsultPro</title>
+      </Helmet>
       <div className="font-[sans-serif] ">
         <div className="min-h-screen flex fle-col items-center justify-center py-6 px-4">
           <div className="grid md:grid-cols-2 items-center gap-4 max-w-7xl w-full">

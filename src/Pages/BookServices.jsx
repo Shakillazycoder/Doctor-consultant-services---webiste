@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BookingCard from "../Component/BookingCard";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const BookServices = () => {
   const { user } = useAuth();
@@ -18,6 +19,9 @@ const BookServices = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Bookings - MedConsultPro</title>
+      </Helmet>
       <div className="mt-5 container mx-auto space-y-5 items-center my-20">
         {bookings.length === 0
           ? <div className="text-3xl flex justify-center items-center h-96 font-bold"> No bookings found for your account</div>

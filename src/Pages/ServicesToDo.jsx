@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ServicesToDoCard from "../Component/ServicesToDoCard";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ServicesToDo = () => {
   const { user } = useAuth();
@@ -17,7 +18,11 @@ const ServicesToDo = () => {
   }, [url, statusUpdate, axiosSecure]);
 
   return (
-    <div className="flex justify-center items-center my-20">
+    <div>
+      <Helmet>
+        <title>ServicesToDo - MedConsultPro</title>
+      </Helmet>
+      <div className="flex justify-center items-center my-20">
       <div className="mt-5  space-y-5">
         {servicesToDo.length === 0 ? (
           <div className="text-3xl font-bold"> No bookings Services found for your account</div>
@@ -32,6 +37,7 @@ const ServicesToDo = () => {
           ))
         )}
       </div>
+    </div>
     </div>
   );
 };

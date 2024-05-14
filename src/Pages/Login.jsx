@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import login from "../../src/assets/login.jpg";
 import useAuth from "../Hooks/useAuth";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [ShowPassword, SetShowPassword] = useState(false);
@@ -63,6 +64,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Login - MedConsultPro</title>
+      </Helmet>
       <div className="font-[sans-serif] ">
         <div className="min-h-screen flex fle-col items-center justify-center py-6 px-4">
           <div className="grid md:grid-cols-2 items-center gap-4 max-w-7xl w-full">

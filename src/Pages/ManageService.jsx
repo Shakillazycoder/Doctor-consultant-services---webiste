@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MySerVicesCard from "../Component/MyServicesCard";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageService = () => {
   const { user } = useAuth();
@@ -54,6 +55,9 @@ const ManageService = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Manage Service - MedConsultPro</title>
+      </Helmet>
       <div className="container px-6 py-10 mx-auto min-h-[calc(100vh-306px)] flex flex-col justify-between">
         <div>
           <div className="flex flex-col md:flex-row justify-center items-center gap-5 ">

@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const UpdateService = () => {
   const { user } = useAuth();
@@ -63,6 +64,9 @@ const UpdateService = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Update Service - MedConsultPro</title>
+      </Helmet>
       <div>
         <div className="bg-white text-black border md:border-4 rounded-lg shadow relative m-10">
           <div className="flex items-start justify-between p-5 border-b rounded-t">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { user } = useAuth();
@@ -40,6 +41,9 @@ const AddService = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Add Service - MedConsultPro</title>
+      </Helmet>
       <div className="bg-white text-black border md:border-4 rounded-lg shadow relative m-10">
         <div className="flex items-start justify-between p-5 border-b rounded-t">
           <h3 className="text-xl font-semibold">Add Service</h3>

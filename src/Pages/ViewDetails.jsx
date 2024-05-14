@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ViewDetails = () => {
   const services = useLoaderData();
@@ -80,7 +81,11 @@ const ViewDetails = () => {
   };
 
   return (
-    <div className="bg-white text-black rounded-2xl">
+    <div>
+      <Helmet>
+        <title>{services.serviceName}</title>
+      </Helmet>
+      <div className="bg-white text-black rounded-2xl">
       <div className=" bg-white lg:p-10 my-20">
         {/* Service Provider information */}
         <div className="text-center space-y-4">
@@ -348,6 +353,7 @@ const ViewDetails = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
