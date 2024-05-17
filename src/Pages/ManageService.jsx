@@ -21,7 +21,7 @@ const ManageService = () => {
     axiosSecure.get(url).then((res) => {
       setServices(res.data);
     });
-  }, [axiosSecure, currentPage, itemPerPage, search, sort, user?.email]);
+  }, [axiosSecure, currentPage, itemPerPage, search, remaining, sort, user?.email]);
 
   const url2 = `/manageService/${user?.email}/count?&search=${search}`;
   useEffect(() => {
