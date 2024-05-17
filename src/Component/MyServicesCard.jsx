@@ -16,33 +16,42 @@ const MySerVicesCard = ({ service, remaining, setRemaining }) => {
   } = service;
 
   const handleDelete = (_id) => {
-    axios.delete(`https://server-site-vert.vercel.app/deleteService/${_id}`).then((res) => {
-      if (res.data.deletedCount > 0) {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to delete this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-          if (result.isConfirmed) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`https://server-site-vert.vercel.app/deleteService/${_id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
               icon: "success"
             });
+            setRemaining(!remaining);
+          } else {
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              title: "Something went wrong",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
-        });
-        setRemaining(!remaining)
-      } else {
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Something went wrong",
-          showConfirmButton: false,
-          timer: 1500,
+        }).catch((error) => {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "Something went wrong",
+            text: error.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
         });
       }
     });

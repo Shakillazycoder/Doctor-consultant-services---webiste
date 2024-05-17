@@ -2,9 +2,11 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 
 const AddService = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const handleAddService = (e) => {
     e.preventDefault();
@@ -36,7 +38,9 @@ const AddService = () => {
           timer: 1500,
         });
       }
+      navigate('/manageServices')
     });
+
   };
 
   return (
