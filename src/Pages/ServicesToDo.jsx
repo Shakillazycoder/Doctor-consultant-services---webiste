@@ -22,7 +22,7 @@ const ServicesToDo = () => {
       <Helmet>
         <title>ServicesToDo - MedConsultPro</title>
       </Helmet>
-      <div className="flex justify-center items-center my-20">
+      <div className="flex justify-center items-center my-16">
       <div className="mt-5  space-y-5">
         {servicesToDo.length === 0 ? (
           <div className="text-3xl font-bold"> No bookings Services found for your account</div>

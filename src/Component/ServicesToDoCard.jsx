@@ -21,7 +21,7 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
   const handleStatus = (id, previousStatus, serviceStatus) => {
     if (previousStatus === serviceStatus) return;
     axios
-      .patch(`http://localhost:3000/statusUpdate/${id}`, {
+      .patch(`https://server-site-vert.vercel.app/statusUpdate/${id}`, {
         servicesStatus: serviceStatus,
       })
       .then((res) => {

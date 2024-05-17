@@ -26,7 +26,7 @@ const AddService = () => {
       createdAt: new Date(),
     };
 
-    axios.post("http://localhost:3000/services", newService).then((res) => {
+    axios.post("https://server-site-vert.vercel.app/services", newService).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "center",

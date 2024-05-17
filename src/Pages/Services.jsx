@@ -119,7 +119,6 @@ const Services = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6 mx-1 rtl:-scale-x-100"
                 fill="none"
-                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
                 <path

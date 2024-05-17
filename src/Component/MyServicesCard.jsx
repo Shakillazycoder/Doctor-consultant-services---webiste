@@ -16,7 +16,7 @@ const MySerVicesCard = ({ service, remaining, setRemaining }) => {
   } = service;
 
   const handleDelete = (_id) => {
-    axios.delete(`http://localhost:3000/deleteService/${_id}`).then((res) => {
+    axios.delete(`https://server-site-vert.vercel.app/deleteService/${_id}`).then((res) => {
       if (res.data.deletedCount > 0) {
         Swal.fire({
           title: "Are you sure?",

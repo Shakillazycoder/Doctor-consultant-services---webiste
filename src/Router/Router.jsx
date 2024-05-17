@@ -56,12 +56,12 @@ import ErrorPage from "../Pages/ErrorPage";
         {
             path: "/viewDetails/:id",
             element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-            loader: ({params}) => fetch(`http://localhost:3000/servicesDetails/${params.id}`) 
+            loader: ({params}) => fetch(`https://server-site-vert.vercel.app/servicesDetails/${params.id}`) 
         },
         {
             path: "/updateService/:id",
             element: <PrivateRoutes><UpdateService></UpdateService></PrivateRoutes>,
-            loader: ({params}) => fetch(`http://localhost:3000/servicesDetails/${params.id}`)
+            loader: ({params}) => fetch(`https://server-site-vert.vercel.app/servicesDetails/${params.id}`)
         }
       ]
     },
