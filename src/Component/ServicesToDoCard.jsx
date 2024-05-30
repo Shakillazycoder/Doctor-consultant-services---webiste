@@ -34,16 +34,55 @@ const ServicesToDoCard = ({ booking, statusUpdate, setStatusUpdate }) => {
             timer: 1500,
           });
           setStatusUpdate(!statusUpdate);
-        } else {
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            title: "Something went wrong",
-            showConfirmButton: false,
-            timer: 1500,
+
+               // Send email notification
+          axios
+          .post('https://server-site-vert.vercel.app/sendStatusEmail', {
+            clientName: userName, // Ensure this is set correctly
+            serviceName: serviceName, // Ensure this is set correctly
+            userEmail: userEmail,
+            status: serviceStatus,
+          })
+          .then(() => {
+            console.log('Email sent successfully');
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Email sent successfully',
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => {
+            console.error('Error sending email:', err);
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Failed to send email',
+              text: err.message,
+              showConfirmButton: true,
+            });
           });
-        }
+      } else {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Failed to update service status',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    })
+    .catch((err) => {
+      console.error('Error updating status:', err);
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Failed to update service status',
+        text: err.message,
+        showConfirmButton: true,
       });
+    });
   };
 
 
